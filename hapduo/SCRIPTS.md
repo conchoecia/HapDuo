@@ -1,8 +1,7 @@
-# DPGB inter-haplotype inversion plotting scripts
+# HapDuo inter-haplotype inversion plotting scripts
 
-Six Python scripts contributed from the *Euplokamis dunlapae* genome project
-(Schultz et al., in prep.) for plotting inter-haplotype inversion calls
-from a base-level PAF.
+Six Python scripts for plotting inter-haplotype inversion calls from a
+base-level PAF.
 
 ## Pipeline overview
 

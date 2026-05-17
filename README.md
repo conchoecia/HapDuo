@@ -9,9 +9,6 @@ panel that combines Hi-C contact pyramids, CCS read piles, PAF synteny
 ribbons, a chromosome-scale cartoon, and close-up zoom panels around all
 four breakpoints, all on a single page.
 
-It was developed alongside the *Euplokamis dunlapae* genome paper (Schultz
-et al., in prep.) where it produced Supplementary Figures S10–S19.
-
 ## Install
 
 ```bash
@@ -102,9 +99,7 @@ The pipeline runs steps 1–5 above and writes everything under `outdir/`.
 
 ## Citing
 
-If you use HapDuo, please cite the *Euplokamis dunlapae* genome paper
-(Schultz et al., *in prep.*) — the citation will be updated here when the
-paper is out.
+A citation will be added here when the accompanying manuscript is public.
 
 ## Releasing
 
