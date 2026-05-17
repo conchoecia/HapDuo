@@ -49,6 +49,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install system build deps
+        # hic-straw is a C++ extension that links against libcurl; the
+        # Ubuntu runner doesn't ship the dev headers by default.
+        run: sudo apt-get update && sudo apt-get install -y libcurl4-openssl-dev
+
       - name: Install build tooling
         run: python -m pip install --upgrade build
 
