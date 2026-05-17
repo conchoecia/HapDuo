@@ -39,8 +39,7 @@ import matplotlib.patches as mpatches
 from matplotlib.collections import PolyCollection
 import numpy as np
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _paf_chain import parse_paf, chain_paf
+from .paf_chain import parse_paf, chain_paf
 
 matplotlib.rcParams["pdf.fonttype"] = 42
 matplotlib.rcParams["ps.fonttype"] = 42

@@ -1,0 +1,32 @@
+# HapDuo example pipeline configuration.
+#
+# Copy to config.yaml in your run directory and edit the paths.
+# Hi-C and CCS inputs are optional; the per-inversion figure degrades
+# gracefully (omits the panel) when they're not provided.
+
+# --- required ---
+hapA_fasta: /path/to/hapA.fasta
+hapB_fasta: /path/to/hapB.fasta
+
+# FASTA index of a CONCATENATED reference (hapA + hapB in one fasta).
+# Build once with `samtools faidx`. HapDuo uses this for chromosome offsets
+# when extracting Hi-C contacts from a competitively-mapped .hic file.
+fai: /path/to/eup_hapAhapB.fasta.fai
+
+outdir: results/
+
+# --- optional ---
+threads: 16
+
+# HiFi/CCS reads aligned (e.g. `minimap2 -ax map-hifi`) to the concatenated
+# reference and coordinate-sorted. Required for the CCS depth + read-pile
+# panels in the per-inversion figure.
+# ccs_bam: /path/to/ccs.sorted.bam
+
+# Juicer .hic Hi-C contact map. For competitively-mapped data (single
+# pseudo-contig containing hapA + hapB), set hic_chrom to that contig name.
+# hic: /path/to/contacts.hic
+# hic_chrom: assembly
+
+# Limit batch rendering to the top-N largest inversions (default: render all).
+# top: 11
