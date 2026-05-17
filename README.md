@@ -106,6 +106,24 @@ If you use HapDuo, please cite the *Euplokamis dunlapae* genome paper
 (Schultz et al., *in prep.*) — the citation will be updated here when the
 paper is out.
 
+## Releasing
+
+HapDuo is published to PyPI via OIDC trusted publishing — no API tokens
+are stored in the repository. To cut a release:
+
+```bash
+git tag v0.1.0
+git push --tags
+```
+
+The `Release to PyPI` workflow at `.github/workflows/release.yml` builds
+an sdist + wheel from the tagged commit, runs a smoke test against the
+five console scripts, publishes to PyPI, and attaches the dist files to
+a matching GitHub release.
+
+The one-time setup on the PyPI side is documented at the top of that
+workflow file.
+
 ## Legacy: DPGB dotplot pipeline
 
 This repository was previously called **DPGB** (Dot Plot Genome Browser)
