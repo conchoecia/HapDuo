@@ -103,7 +103,7 @@ def main():
         chr_token = hapA_scaf.split("_")[-1]
         prefix = outdir / f"rank{rank:02d}_{chr_token}"
         chr_num = chr_token.replace("chr", "")
-        title = (f"{ordinal(rank)} largest inversion — chr {chr_num}  "
+        title = (f"{ordinal(rank)} largest in genome — chr {chr_num}  "
                  f"({inv_len/1e6:.2f} Mb, {n_anch} anchors)")
 
         cmd = invoker + [

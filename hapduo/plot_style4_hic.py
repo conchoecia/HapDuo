@@ -45,7 +45,9 @@ from matplotlib.colors import LinearSegmentedColormap, LogNorm
 from matplotlib.collections import PolyCollection
 import numpy as np
 import pysam
-import hicstraw
+# hicstraw is an optional dependency (Hi-C panels only) - deferred to call site
+# so `import hapduo.plot_style4_hic` works without libcurl headers + hic-straw
+# installed. main() imports it lazily when --hic is supplied.
 
 matplotlib.rcParams['pdf.fonttype'] = 42   # TrueType -> editable text in Illustrator
 matplotlib.rcParams['ps.fonttype']  = 42
@@ -372,6 +374,14 @@ def main():
                   B_cov_y.max() if B_cov_y.size else 1, 1.0)
 
     print("  fetching Hi-C ...", file=sys.stderr)
+    try:
+        import hicstraw
+    except ImportError:
+        sys.exit(
+            "hapduo-style4 needs hic-straw to read .hic files. Install it with:\n"
+            "    pip install hapduo[hic]\n"
+            "(requires libcurl headers on Linux, e.g. `apt install libcurl4-openssl-dev`)."
+        )
     hic = hicstraw.HiCFile(args.hic)
     A_mat, A_bins = fetch_hic_pyramid(hic, args.hic_chrom, args.hic_offset_a,
                                       xmin, xmax, args.hic_resolution)

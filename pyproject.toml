@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name            = "hapduo"
-version         = "0.1.1"
+version         = "0.1.2"
 description     = "Multi-evidence visualisation of structural variants between two haplotype assemblies of the same individual"
 readme          = "README.md"
 requires-python = ">=3.9"
@@ -24,10 +24,15 @@ dependencies    = [
     "numpy>=1.21",
     "matplotlib>=3.6",
     "pysam>=0.19",
-    "hic-straw>=1.3",
 ]
 
 [project.optional-dependencies]
+# Hi-C panels in hapduo-style4 need hic-straw, which on Linux still has to
+# compile from source against libcurl headers (no pre-built wheels on
+# PyPI). Made optional so a plain `pip install hapduo` works without
+# `apt install libcurl4-openssl-dev` first.
+#   pip install hapduo[hic]      # enable Hi-C panels
+hic = ["hic-straw>=1.3"]
 dev = ["pytest", "ruff", "snakemake>=8"]
 
 [project.urls]

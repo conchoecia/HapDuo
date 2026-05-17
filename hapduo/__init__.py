@@ -15,4 +15,4 @@ The package exposes five scripts as console entry points:
 single config.yaml.
 """
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
