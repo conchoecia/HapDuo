@@ -25,8 +25,7 @@ import re
 import sys
 from collections import defaultdict
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from _paf_chain import parse_paf, chain_paf
+from .paf_chain import parse_paf, chain_paf
 
 CHR_RE = re.compile(r"_chr(\d+)$")
 
